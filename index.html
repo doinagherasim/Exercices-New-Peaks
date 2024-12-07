@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test New Peaks</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Hello Test New Peaks!</h1>
+    <div class="row d-flex justify-content-between mt-5">
+        <div class="col-6">
+            <h3 class="mb-3">Entry data:</h3>
+            <table class="table">
+                <thead class="table-info">
+                  <tr>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Value</th>
+                  </tr>
+                </thead>
+                <tbody id="tableResult">
+                </tbody>
+              </table>
+        </div>
+
+        <div class="col-6">
+            <h3 class="mb-3">Add data:</h3>
+            <form class="border border-info rounded-1 p-5" id="dataForm">
+
+                <div class="row mb-3">
+                    <div class="col-12 col-md-6">
+                        <input 
+                        type="text" 
+                        class="form-control focus-ring focus-ring-info border-info mb-3" 
+                        id="firstName" 
+                        placeholder="FirstName">
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <input 
+                        type="text" 
+                        class="form-control 
+                        focus-ring focus-ring-info border-info mb-3" 
+                        id="lastName" 
+                        placeholder="LastName">
+                      </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12 col-md-6">
+                        <input 
+                        type="email" 
+                        class="form-control focus-ring focus-ring-info border-info mb-3" 
+                        id="email" 
+                        placeholder="Email">
+                      </div>
+                      
+                      <div class="col-12 col-md-6">
+                        <input 
+                        type="number" 
+                        class="form-control focus-ring focus-ring-info border-info mb-3" 
+                        id="value" 
+                        placeholder="Value">
+                      </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+              </form>
+              <div id="error-message" class="alert alert-danger mt-3" style="display: none;">
+                <strong>All fields are required!</strong> Please fill in all the fields.
+              </div>  
+              <div id="error-message-value" class="alert alert-danger mt-3" style="display: none;">
+                The entered value must be greater than 0.
+              </div>        
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="mt-5">
+            <h3 class="mb-3">Process data:</h2>
+                <div class="d-flex flex-wrap justify-content-start gap-3">
+                    <button id="process1" class="btn btn-outline-success">Process 1</button>
+                    <button id="process2" class="btn btn-outline-success">Process 2</button>
+                    <button id="calculateAverage" class="btn btn-outline-success">Calculate Average</button>
+                    <button id="sortTable" class="btn btn-outline-success">Sort table</button>
+                    <button id="highlightEntries" class="btn btn-outline-success">Highlight Entries</button>
+                  </div>
+        </div>
+        <div class="mt-5 mb-5">
+            <h3 class="mb-3">Data processing results:</h2>
+                <table class="table">
+                    <thead class="table">
+                      <tr>
+                        <th scope="col" class="text-success">Processs</th>
+                        <th scope="col" class="text-success">Result</th>
+                      </tr>
+                    </thead>
+                    <tbody id="processResult">
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div>
+    </div>
+  </div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
