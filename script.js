@@ -88,20 +88,24 @@ document.getElementById('calculateAverage').addEventListener('click', function()
 });
 
 document.getElementById('highlightEntries').addEventListener('click', function() {
-    const valuesArray = Array.from(document.querySelectorAll('td[data-value]'))
-                             .map(cell => parseFloat(cell.getAttribute('data-value')));
+  const valuesArray = Array.from(document.querySelectorAll('td[data-value]'))
+                           .map(cell => parseFloat(cell.getAttribute('data-value')));
+  const rows = document.querySelectorAll('#tableResult tr');
 
-    const smallestValue = Math.min(...valuesArray);
-    console.log(smallestValue);
+  if (valuesArray.length > 0) {
+      const total = valuesArray.reduce((sum, value) => sum + value, 0);
+      const average = total / valuesArray.length;
 
-    const rows = document.querySelectorAll('#tableResult tr');
-    rows.forEach(row => {
-        const valueCell = row.querySelector('td[data-value]');
-        if (valueCell) {
-            const value = parseFloat(valueCell.getAttribute('data-value'));
-            if (value === smallestValue) {
-                row.classList.add('border', 'border-5', 'border-info');
-            }
-        }
-    });
+      rows.forEach(row => {
+          const valueCell = row.querySelector('td[data-value]');
+          if (valueCell) {
+              const value = parseFloat(valueCell.getAttribute('data-value'));
+              if (value < average) {
+                  row.classList.add('border', 'border-5', 'border-danger');
+              };
+          }
+      });
+  } else {
+      console.log('No values smaller than average.');
+  }
 });
